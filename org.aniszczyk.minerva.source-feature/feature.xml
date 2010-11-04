@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.aniszczyk.minerva.source"
+      label="%featureName"
+      version="1.0.0.qualifier"
+      provider-name="%providerName"
+      plugin="org.aniszczyk.minerva">
+
+   <description url="http://github.com/caniszczyk/minerva">
+     %description
+   </description>
+
+   <copyright>
+     %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+     %license
+   </license>
+
+   <plugin
+         id="org.aniszczyk.minerva.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

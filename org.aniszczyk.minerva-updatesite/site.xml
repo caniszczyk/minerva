@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://github.com/caniszczyk/minerva">
+	Minerva
+   </description>
+   <feature url="features/org.aniszczyk.minerva_0.0.0.qualifier.jar" id="org.aniszczyk.minerva" version="0.0.0" patch="false">
+      <category name="Minerva Plug-in"/>
+   </feature>
+   <feature url="features/org.aniszczyk.minerva.sources_0.0.0.qualifier.jar" id="org.aniszczyk.minerva" version="0.0.0" patch="false">
+      <category name="Minerva Plug-in"/>
+   </feature>
+   <category-def name="Minerva Example" label="Minerva Example">
+      <description>
+         A example project for the Eclipse community for getting started with Tycho.
+      </description>
+   </category-def>
+</site>
