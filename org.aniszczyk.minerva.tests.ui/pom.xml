@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-   Copyright (C) 2010, Chris Aniszczyk <caniszczyk@gmail.com>
+   Copyright (C) 2011, Chris Aniszczyk <caniszczyk@gmail.com>
 
    All rights reserved. This program and the accompanying materials
    are made available under the terms of the Eclipse Public License v1.0
@@ -25,15 +25,15 @@
   <name>Minerva UI Test Plug-in (Incubation)</name>
 
   <properties>
-    <local-egit-site>file:/${basedir}/../org.eclipse.egit-updatesite/target/site</local-egit-site>
+    <local-p2-site>file:/${basedir}/../org.aniszczyk.minerva-updatesite/target/site</local-p2-site>
     <ui.test.vmargs>-Xmx512m -XX:MaxPermSize=256m</ui.test.vmargs>
   </properties>
 
   <repositories>
     <repository>
-      <id>local-egit</id>
+      <id>local-p2</id>
       <layout>p2</layout>
-      <url>${local-egit-site}</url>
+      <url>${local-p2-site}</url>
     </repository>
   </repositories>
 
@@ -58,8 +58,8 @@
         <artifactId>maven-osgi-test-plugin</artifactId>
         <version>${tycho-version}</version>
         <configuration>
-          <testSuite>org.eclipse.egit.ui.test</testSuite>
-          <testClass>org.eclipse.egit.ui.test.AllTests</testClass>
+          <testSuite>org.aniszczyk.minerva.tests.ui</testSuite>
+          <testClass>org.aniszczyk.minerva.tests.ui.AllTests</testClass>
           <useUIHarness>true</useUIHarness>
           <useUIThread>false</useUIThread>
           <product>org.eclipse.sdk.ide</product>

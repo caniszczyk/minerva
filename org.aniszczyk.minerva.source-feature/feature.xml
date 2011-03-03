@@ -19,7 +19,14 @@
    </license>
 
    <plugin
-         id="org.aniszczyk.minerva.source"
+         id="org.aniszczyk.minerva.core.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.aniszczyk.minerva.ui.source"
          download-size="0"
          install-size="0"
          version="0.0.0"

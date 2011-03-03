@@ -19,25 +19,25 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.aniszczyk.minerva.core.tests</artifactId>
-  <packaging>eclipse-test-plugin</packaging>
+  <artifactId>org.aniszczyk.minerva.core</artifactId>
+  <packaging>eclipse-plugin</packaging>
 
-  <name>Minerva Core Test Plug-in</name>
+  <name>Minerva Core Plug-in</name>
 
-  <build>
+ <build>
+     <!-- workaround for https://issues.sonatype.org/browse/TYCHO-168 -->
+     <resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.sonatype.tycho</groupId>
-        <artifactId>maven-osgi-test-plugin</artifactId>
-        <version>${tycho-version}</version>
-        <configuration>
-          <excludes>
-            <!-- test mojo matches TestProject be default and treats it as PojoTest -->
-            <exclude>**/Test*.class</exclude>
-          </excludes>
-          <useUIHarness>false</useUIHarness>
-          <useUIThread>false</useUIThread>
-        </configuration>
+        <artifactId>maven-osgi-source-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -49,4 +49,5 @@
       </plugin>
     </plugins>
   </build>
+
 </project>

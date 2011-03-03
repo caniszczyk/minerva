@@ -42,6 +42,8 @@
     <tycho-version>0.10.0</tycho-version>
     <platform-version-name>helios</platform-version-name>
     <eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
+    <wikitext-site>http://download.eclipse.org/tools/mylyn/update/weekly</wikitext-site>
+    <swtbot-site>http://download.eclipse.org/technology/swtbot/${platform-version-name}/dev-build/update-site</swtbot-site>
   </properties>
 
   <profiles>
@@ -54,16 +56,36 @@
         </property>
       </activation>
       <properties>
+        <eclipse-site>http://download.eclipse.org/releases/helios</eclipse-site>
         <platform-version>[3.6,3.7)</platform-version>
+        <swtbot-site>http://download.eclipse.org/technology/swtbot/helios/dev-build/update-site</swtbot-site>
+      </properties>
+    </profile>
+    <profile>
+      <id>platform-indigo</id>
+      <activation>
+        <property>
+          <name>platform-version-name</name>
+          <value>indigo</value>
+        </property>
+      </activation>
+      <properties>
+        <eclipse-site>http://download.eclipse.org/releases/indigo</eclipse-site>
+        <platform-version>[3.7,3.8)</platform-version>
+        <swtbot-site>http://download.eclipse.org/technology/swtbot/indigo/dev-build/update-site</swtbot-site>
       </properties>
     </profile>
   </profiles>
 
   <modules>
-    <module>org.aniszczyk.minerva</module>
+    <module>org.aniszczyk.minerva.core</module>
+    <module>org.aniszczyk.minerva.ui</module>
 
     <module>org.aniszczyk.minerva-feature</module>
     <module>org.aniszczyk.minerva.source-feature</module>
+
+    <module>org.aniszczyk.minerva.tests.core</module>
+    <module>org.aniszczyk.minerva.tests.ui</module>
 
     <module>org.aniszczyk.minerva-updatesite</module>
    </modules>
@@ -73,6 +95,16 @@
       <id>helios</id>
       <layout>p2</layout>
       <url>${eclipse-site}</url>
+    </repository>
+    <repository>
+      <id>swtbot</id>
+      <layout>p2</layout>
+      <url>${swtbot-site}</url>
+    </repository>
+    <repository>
+      <id>wikitext</id>
+      <layout>p2</layout>
+      <url>${wikitext-site}</url>
     </repository>
   </repositories>
   
@@ -182,4 +214,3 @@
     </pluginManagement>
   </build>
 </project>
-

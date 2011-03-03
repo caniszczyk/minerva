@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (C) 2010, Chris Aniszczyk <caniszczyk@gmail.com>
+ * Copyright (C) 2011, Chris Aniszczyk <caniszczyk@gmail.com>
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -16,7 +16,7 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
-public abstract class SimpleUITestCase {
+public class SimpleUITestCase {
 
 	protected static final SWTWorkbenchBot bot = new SWTWorkbenchBot();
 

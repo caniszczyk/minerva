@@ -12,7 +12,7 @@
             name="%view.name"
             icon="icons/sample.gif"
             category="org.aniszczyk.minerva"
-            class="org.aniszczyk.minerva.views.SampleView"
+            class="org.aniszczyk.minerva.ui.views.SampleView"
             id="org.aniszczyk.minerva.views.SampleView">
       </view>
    </extension>

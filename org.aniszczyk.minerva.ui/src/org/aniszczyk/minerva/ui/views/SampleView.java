@@ -1,4 +1,4 @@
-package org.aniszczyk.minerva.views;
+package org.aniszczyk.minerva.ui.views;
 
 
 import org.eclipse.swt.widgets.Composite;

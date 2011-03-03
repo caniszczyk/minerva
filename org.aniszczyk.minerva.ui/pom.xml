@@ -19,10 +19,10 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.aniszczyk.minerva</artifactId>
+  <artifactId>org.aniszczyk.minerva.ui</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>Minerva Plug-in</name>
+  <name>Minerva UI Plug-in</name>
 
  <build>
      <!-- workaround for https://issues.sonatype.org/browse/TYCHO-168 -->
