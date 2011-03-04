@@ -8,7 +8,10 @@
  *******************************************************************************/
 package org.aniszczyk.minerva.tests.ui;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
+import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotPerspective;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.junit.After;
@@ -23,7 +26,8 @@ public class SimpleUITestCase {
 	@BeforeClass
 	public static void closeWelcomePage() {
 		try {
-			bot.viewByTitle("Welcome").close();
+			SWTBotPerspective perspective = bot.perspectiveByLabel("Resource");
+			assertNotNull(perspective);
 		} catch (WidgetNotFoundException e) {
 			// somebody else probably closed it, lets not feel bad about it.
 		}
