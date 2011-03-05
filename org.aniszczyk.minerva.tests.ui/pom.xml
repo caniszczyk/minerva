@@ -71,7 +71,7 @@
               <artifactId>org.eclipse.pde.feature.group</artifactId>
               <version>${platform-version}</version>
             </dependency>
-            <dependency>
+            <dependency> -->
               <type>p2-installable-unit</type>
               <artifactId>org.aniszczyk.minerva.feature.group</artifactId>
               <version>1.0.0</version>
