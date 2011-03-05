@@ -76,6 +76,34 @@
         <swtbot-site>http://download.eclipse.org/technology/swtbot/indigo/dev-build/update-site</swtbot-site>
       </properties>
     </profile>
+    <profile>
+      <id>checkstyle</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-checkstyle-plugin</artifactId>
+	    <version>2.6</version>
+            <executions>
+              <execution>
+	         <phase>verify</phase>
+	         <goals>
+	            <goal>checkstyle</goal>
+	         </goals>
+		 <configuration>
+                    <configLocation>config/sun_checks.xml</configLocation>
+                    <failOnErrors>false</failOnErrors>
+                    <consoleOutput>true</consoleOutput>
+		 </configuration>
+              </execution>
+            </executions>
+          </plugin>
+         </plugins>
+      </build>
+    </profile>
   </profiles>
 
   <modules>
