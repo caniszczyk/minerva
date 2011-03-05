@@ -29,7 +29,14 @@
    </requires>
 
    <plugin
-         id="org.aniszczyk.minerva"
+         id="org.aniszczyk.minerva.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.aniszczyk.minerva.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
