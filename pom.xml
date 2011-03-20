@@ -54,7 +54,7 @@
 
     <module>org.aniszczyk.minerva-feature</module>
     <module>org.aniszczyk.minerva.source-feature</module>
-    <module>org.aniszczyk.minerva-updatesite</module>
+    <module>org.aniszczyk.minerva-repository</module>
 
     <module>org.aniszczyk.minerva.tests.core</module>
     <module>org.aniszczyk.minerva.tests.ui</module>
