@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Minerva User Guide</title>
+		<link type="text/css" rel="stylesheet" href="../book.css"/>
+	</head>
+	<body>
+		<table class="navigation" style="width: 100%;" border="0" summary="navigation">
+			<tr>
+				<th style="width: 100%" align="center" colspan="3">Minerva User Guide</th>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left"></td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right">
+					<a href="Tests.html" title="Tests">
+						<img alt="Next" border="0" src="../images/next.gif"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left" valign="top"></td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right" valign="top">Tests</td>
+			</tr>
+		</table><hr/>
+		<p>Minerva is the Maven version of 
+			<a href="http://wiki.eclipse.org/Athena_Common_Build" target="minerva_external">Athena</a>.
+		</p>
+		<p>At the moment, the code is hosted at GitHub but the plan is to have it hosted at eclipse.org...</p>
+		<pre style="width: 40em;">
+git clone git://github.com/caniszczyk/minerva.git
+</pre>
+		<h1 id="Building">Building</h1>
+		<p>
+			<b>Note: Please have the latest version of Maven 3 installed.</b>
+		</p>
+		<p>To build the project from the command line after checking the code out, simply run</p>
+		<pre style="width: 40em;">
+mvn -Dskip-ui-tests=true clean install
+</pre>
+		<p>In Maven, the parent 
+			<a href="https://github.com/caniszczyk/minerva/blob/master/pom.xml" target="minerva_external">pom.xml</a> serves as the central point on adding things to the build. It's also generally the most complicated piece of the build as it contains information that is shared by children pom.xml files. The first part of the parent pom.xml we'll look at contains identifying information:
+		</p>
+		<pre style="width: 40em;">
+...
+&lt;groupId&gt;org.aniszczyk.minerva&lt;/groupId&gt;
+&lt;artifactId&gt;minerva-parent&lt;/artifactId&gt;
+&lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+&lt;packaging&gt;pom&lt;/packaging&gt;
+
+&lt;name&gt;Minvera Parent&lt;/name&gt;
+...
+</pre>
+		<p>The second part contains profile information and where to get dependencies.</p>
+		<pre>
+  &lt;properties&gt;
+    &lt;tycho-version&gt;0.10.0&lt;/tycho-version&gt;
+    &lt;platform-version-name&gt;helios&lt;/platform-version-name&gt;
+    &lt;eclipse-site&gt;http://download.eclipse.org/releases/${platform-version-name}&lt;/eclipse-site&gt;
+    &lt;wikitext-site&gt;http://download.eclipse.org/tools/mylyn/update/weekly&lt;/wikitext-site&gt;
+    &lt;swtbot-site&gt;http://download.eclipse.org/technology/swtbot/${platform-version-name}/dev-build/update-site&lt;/swtbot-site&gt;
+  &lt;/properties&gt;
+
+  &lt;profiles&gt;
+    &lt;profile&gt;
+      &lt;id&gt;platform-helios&lt;/id&gt;
+      &lt;activation&gt;
+        &lt;property&gt;
+          &lt;name&gt;platform-version-name&lt;/name&gt;
+          &lt;value&gt;helios&lt;/value&gt;
+        &lt;/property&gt;
+      &lt;/activation&gt;
+      &lt;properties&gt;
+        &lt;eclipse-site&gt;http://download.eclipse.org/releases/helios&lt;/eclipse-site&gt;
+        &lt;platform-version&gt;[3.6,3.7)&lt;/platform-version&gt;
+        &lt;swtbot-site&gt;http://download.eclipse.org/technology/swtbot/helios/dev-build/update-site&lt;/swtbot-site&gt;
+      &lt;/properties&gt;
+    &lt;/profile&gt;
+    &lt;profile&gt;
+      &lt;id&gt;platform-indigo&lt;/id&gt;
+      &lt;activation&gt;
+        &lt;property&gt;
+          &lt;name&gt;platform-version-name&lt;/name&gt;
+          &lt;value&gt;indigo&lt;/value&gt;
+        &lt;/property&gt;
+      &lt;/activation&gt;
+      &lt;properties&gt;
+        &lt;eclipse-site&gt;http://download.eclipse.org/releases/indigo&lt;/eclipse-site&gt;
+        &lt;platform-version&gt;[3.7,3.8)&lt;/platform-version&gt;
+        &lt;swtbot-site&gt;http://download.eclipse.org/technology/swtbot/indigo/dev-build/update-site&lt;/swtbot-site&gt;
+      &lt;/properties&gt;
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
+...
+  &lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;helios&lt;/id&gt;
+      &lt;layout&gt;p2&lt;/layout&gt;
+      &lt;url&gt;${eclipse-site}&lt;/url&gt;
+    &lt;/repository&gt;
+    &lt;repository&gt;
+      &lt;id&gt;swtbot&lt;/id&gt;
+      &lt;layout&gt;p2&lt;/layout&gt;
+      &lt;url&gt;${swtbot-site}&lt;/url&gt;
+    &lt;/repository&gt;
+    &lt;repository&gt;
+      &lt;id&gt;wikitext&lt;/id&gt;
+      &lt;layout&gt;p2&lt;/layout&gt;
+      &lt;url&gt;${wikitext-site}&lt;/url&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;
+</pre>
+		<p>The third part lists the modules (e.g., features, plug-ins) that are part of the build:</p>
+		<pre style="width: 40em;">
+  &lt;modules&gt;
+    &lt;module&gt;org.aniszczyk.minerva.core&lt;/module&gt;
+    &lt;module&gt;org.aniszczyk.minerva.ui&lt;/module&gt;
+
+    &lt;module&gt;org.aniszczyk.minerva-feature&lt;/module&gt;
+    &lt;module&gt;org.aniszczyk.minerva.source-feature&lt;/module&gt;
+
+    &lt;module&gt;org.aniszczyk.minerva-updatesite&lt;/module&gt;
+
+    &lt;module&gt;org.aniszczyk.minerva.tests.core&lt;/module&gt;
+    &lt;module&gt;org.aniszczyk.minerva.tests.ui&lt;/module&gt;
+   &lt;/modules&gt;
+</pre>
+		<h2 id="Features">Features</h2>
+		<p>Features simply reference the parent pom and have a packaging attribute of 
+			<b>eclipse-feature</b>.
+		</p>
+		<p>Here's a 
+			<a href="https://github.com/caniszczyk/minerva/blob/master/org.aniszczyk.minerva-feature/pom.xml" target="minerva_external">pom.xml</a> snippet from the minerva feature:
+		</p>
+		<pre style="width: 40em;">
+  &lt;parent&gt;
+    &lt;groupId&gt;org.aniszczyk.minerva&lt;/groupId&gt;
+    &lt;artifactId&gt;minerva-parent&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+  &lt;/parent&gt;
+
+  &lt;artifactId&gt;org.aniszczyk.minerva-feature&lt;/artifactId&gt;
+  &lt;packaging&gt;eclipse-feature&lt;/packaging&gt;
+
+  &lt;name&gt;Minerva Feature (Incubation)&lt;/name&gt;
+</pre>
+		<h2 id="Plug-ins">Plug-ins</h2>
+		<p>Plug-ins simply reference the parent pom and have a packaging attribute of 
+			<b>eclipse-plugin</b>.
+		</p>
+		<p>Here's a 
+			<a href="https://github.com/caniszczyk/minerva/blob/master/org.aniszczyk.minerva.core/pom.xml" target="minerva_external">pom.xml</a> snippet from the minerva core plug-in:
+		</p>
+		<pre style="width: 40em;">
+  &lt;parent&gt;
+    &lt;groupId&gt;org.aniszczyk.minerva&lt;/groupId&gt;
+    &lt;artifactId&gt;minerva-parent&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+  &lt;/parent&gt;
+
+  &lt;artifactId&gt;org.aniszczyk.minerva.core&lt;/artifactId&gt;
+  &lt;packaging&gt;eclipse-plugin&lt;/packaging&gt;
+
+  &lt;name&gt;Minerva Core Plug-in&lt;/name&gt;
+</pre>
+		<h2 id="Source">Source</h2>
+		<p>To package source with Tycho, you need first need a feature that contains the source plug-ins.</p>
+		<p>In Minerva, this is in 
+			<a href="https://github.com/caniszczyk/minerva/tree/master/org.aniszczyk.minerva.source-feature" target="minerva_external">org.aniszczyk.minerva.source-feature</a>. The pom.xml is just like any feature with Tycho:
+		</p>
+		<pre>
+  &lt;parent&gt;
+    &lt;groupId&gt;org.aniszczyk.minerva&lt;/groupId&gt;
+    &lt;artifactId&gt;minerva-parent&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+  &lt;/parent&gt;
+
+  &lt;artifactId&gt;org.aniszczyk.minerva.source-feature&lt;/artifactId&gt;
+  &lt;packaging&gt;eclipse-feature&lt;/packaging&gt;
+
+  &lt;name&gt;Minerva Sources Feature&lt;/name&gt;
+</pre>
+		<p>The important part is that your 
+			<a href="https://github.com/caniszczyk/minerva/blob/master/org.aniszczyk.minerva.source-feature/feature.xml" target="minerva_external">feature.xml</a> references the plug-ins you want source for:
+		</p>
+		<pre>
+   &lt;plugin
+         id="org.aniszczyk.minerva.core.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/&gt;
+
+   &lt;plugin
+         id="org.aniszczyk.minerva.ui.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/&gt;
+</pre>
+		<p>Then in any plug-ins that you reference, you need to ensure their respective 
+			<a href="https://github.com/caniszczyk/minerva/blob/master/org.aniszczyk.minerva.core/pom.xml" target="minerva_external">pom.xml</a> contains a reference to the 
+			<b>maven-osgi-source-plugin</b> maven plug-in.
+		</p>
+		<pre>
+ &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.sonatype.tycho&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-osgi-source-plugin&lt;/artifactId&gt;
+      &lt;/plugin&gt;
+     ...
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+</pre>
+		<h2 id="Repositories_.28Update_Sites.29">Repositories (Update Sites)</h2>
+		<p>Plug-ins simply reference the parent pom and have a packaging attribute of 
+			<b>eclipse-update-site</b>.
+		</p>
+		<p>Here's a 
+			<a href="https://github.com/caniszczyk/minerva/blob/master/org.aniszczyk.minerva-updatesite/pom.xml" target="minerva_external">pom.xml</a> snippet from the minerva site:
+		</p>
+		<pre style="width: 40em;">
+  &lt;parent&gt;
+    &lt;groupId&gt;org.aniszczyk.minerva&lt;/groupId&gt;
+    &lt;artifactId&gt;minerva-parent&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+  &lt;/parent&gt;
+
+  &lt;artifactId&gt;org.aniszczyk.minerva-updatesite&lt;/artifactId&gt;
+  &lt;packaging&gt;eclipse-update-site&lt;/packaging&gt;
+</pre><hr/>
+		<table class="navigation" style="width: 100%;" border="0" summary="navigation">
+			<tr>
+				<td style="width: 20%" align="left"></td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right">
+					<a href="Tests.html" title="Tests">
+						<img alt="Next" border="0" src="../images/next.gif"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left" valign="top"></td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right" valign="top">Tests</td>
+			</tr>
+		</table>
+	</body>
+</html>

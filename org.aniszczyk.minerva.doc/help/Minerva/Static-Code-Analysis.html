@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Minerva User Guide - Static Code Analysis</title>
+		<link type="text/css" rel="stylesheet" href="../book.css"/>
+	</head>
+	<body>
+		<table class="navigation" style="width: 100%;" border="0" summary="navigation">
+			<tr>
+				<th style="width: 100%" align="center" colspan="3">Static Code Analysis</th>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left">
+					<a href="Documentation.html" title="Documentation">
+						<img alt="Previous" border="0" src="../images/prev.gif"/>
+					</a>
+				</td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right">
+					<a href="Code-Coverage.html" title="Code Coverage">
+						<img alt="Next" border="0" src="../images/next.gif"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left" valign="top">Documentation</td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right" valign="top">Code Coverage</td>
+			</tr>
+		</table><hr/>
+		<h1 id="Static_Code_Analysis">Static Code Analysis</h1>
+		<p>You can use code coverage by adding the proper maven plug-in dependencies in the parent 
+			<a href="https://github.com/caniszczyk/minerva/blob/master/pom.xml" target="minerva_external">pom.xml</a>.
+		</p>
+		<pre>
+ &lt;pluginManagement&gt;
+      &lt;plugins&gt;
+        &lt;plugin&gt;
+          &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+          &lt;artifactId&gt;findbugs-maven-plugin&lt;/artifactId&gt;
+          &lt;version&gt;2.3.2-SNAPSHOT&lt;/version&gt;
+          &lt;configuration&gt;
+            &lt;findbugsXmlOutput&gt;true&lt;/findbugsXmlOutput&gt;
+            &lt;failOnError&gt;false&lt;/failOnError&gt;
+          &lt;/configuration&gt;
+          &lt;executions&gt;
+            &lt;execution&gt;
+              &lt;goals&gt;
+                &lt;goal&gt;check&lt;/goal&gt;
+              &lt;/goals&gt;
+            &lt;/execution&gt;
+          &lt;/executions&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+          &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+          &lt;artifactId&gt;maven-pmd-plugin&lt;/artifactId&gt;
+          &lt;version&gt;2.5&lt;/version&gt;
+          &lt;configuration&gt;
+            &lt;sourceEncoding&gt;utf-8&lt;/sourceEncoding&gt;
+            &lt;minimumTokens&gt;100&lt;/minimumTokens&gt;
+            &lt;targetJdk&gt;1.5&lt;/targetJdk&gt;
+            &lt;format&gt;xml&lt;/format&gt;
+            &lt;failOnViolation&gt;false&lt;/failOnViolation&gt;
+          &lt;/configuration&gt;
+          &lt;executions&gt;
+            &lt;execution&gt;
+              &lt;goals&gt;
+                &lt;goal&gt;cpd-check&lt;/goal&gt;
+              &lt;/goals&gt;
+            &lt;/execution&gt;
+          &lt;/executions&gt;
+        &lt;/plugin&gt;
+      &lt;/plugins&gt;
+    &lt;/pluginManagement&gt;
+</pre>
+		<p>In this example, we're using the 
+			<b>findbugs-maven-plugin</b> and 
+			<b>maven-pmd-plugin</b> maven plug-ins.
+		</p>
+		<p>Then, to enable code coverage for each plug-in you have to update their respective 
+			<a href="https://github.com/caniszczyk/minerva/blob/master/org.aniszczyk.minerva.core/pom.xml" target="minerva_external">pom.xml</a>.
+		</p>
+		<pre>
+ &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+        &lt;artifactId&gt;findbugs-maven-plugin&lt;/artifactId&gt;
+      &lt;/plugin&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-pmd-plugin&lt;/artifactId&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+</pre><hr/>
+		<table class="navigation" style="width: 100%;" border="0" summary="navigation">
+			<tr>
+				<td style="width: 20%" align="left">
+					<a href="Documentation.html" title="Documentation">
+						<img alt="Previous" border="0" src="../images/prev.gif"/>
+					</a>
+				</td>
+				<td style="width: 60%" align="center">
+					<a href="Minerva.html" title="Minerva User Guide">
+						<img alt="Minerva User Guide" border="0" src="../images/home.gif"/>
+					</a>
+				</td>
+				<td style="width: 20%" align="right">
+					<a href="Code-Coverage.html" title="Code Coverage">
+						<img alt="Next" border="0" src="../images/next.gif"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left" valign="top">Documentation</td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right" valign="top">Code Coverage</td>
+			</tr>
+		</table>
+	</body>
+</html>

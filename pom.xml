@@ -51,6 +51,7 @@
   <modules>
     <module>org.aniszczyk.minerva.core</module>
     <module>org.aniszczyk.minerva.ui</module>
+    <module>org.aniszczyk.minerva.doc</module>
 
     <module>org.aniszczyk.minerva-feature</module>
     <module>org.aniszczyk.minerva.source-feature</module>
