@@ -1,0 +1,93 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Minerva User Guide - Publishing</title>
+		<link type="text/css" rel="stylesheet" href="../book.css"/>
+	</head>
+	<body>
+		<table class="navigation" style="width: 100%;" border="0" summary="navigation">
+			<tr>
+				<th style="width: 100%" align="center" colspan="3">Publishing</th>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left">
+					<a href="Hudson-Jenkins-.html" title="Hudson (Jenkins)">
+						<img alt="Previous" border="0" src="../images/prev.gif"/>
+					</a>
+				</td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right">
+					<a href="Updating-This-Document.html" title="Updating This Document">
+						<img alt="Next" border="0" src="../images/next.gif"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left" valign="top">Hudson (Jenkins)</td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right" valign="top">Updating This Document</td>
+			</tr>
+		</table><hr/>
+		<h1 id="Publishing">Publishing</h1>
+		<p>Publishing is a bit tricky at eclipse.org, what some projects do for nightly builds is run a cron job on build.eclipse.org</p>
+		<p>For example, the EGit project has a cron entry like this:</p>
+		<pre>
+* */3 * * * sh /home/data/httpd/download.eclipse.org/egit/pubegit.sh
+</pre>
+		<p>The script essentially grabs the latest succeessful build from hudson and publishes it to a directory.</p>
+		<pre>
+BUILD_LOC="/home/data/httpd/download.eclipse.org/egit"
+
+${symbol_pound} where you will have your promotion logs
+PROMO_LOGS_DIR=""
+
+${symbol_pound} this script log
+logFile="publish.log"
+
+rm -f ${symbol_dollar}logFile
+echo "[`date +%Y/%m/%d${symbol_escape} %H:%M`]: getting last successful build" &gt;&gt; ${symbol_dollar}logFile
+mkdir -p ${symbol_dollar}BUILD_LOC
+rm -f ${symbol_dollar}BUILD_LOC/site.zip
+rm -rf ${symbol_dollar}BUILD_LOC/build
+cd ${symbol_dollar}BUILD_LOC
+wget --no-check-certificate
+"https://hudson.eclipse.org/hudson/job/egit/lastSuccessfulBuild/artifact/org.eclipse.egit-updatesite/target/site/*zip*/site.zip"
+-o ${symbol_dollar}logFile
+if [ ! -f site.zip ]; then echo "ERROR:build.zip (from Hudson) not
+found" &gt;&gt; ${symbol_dollar}logFile; exit -2; fi
+unzip site.zip &gt;&gt; ${symbol_dollar}logFile
+rm -Rf updates-nightly
+mkdir updates-nightly
+mv -f site/* updates-nightly/
+echo "[`date +%Y/%m/%d${symbol_escape} %H:%M`]: publishing nightly build ..." &gt;&gt; ${symbol_dollar}logFile
+</pre><hr/>
+		<table class="navigation" style="width: 100%;" border="0" summary="navigation">
+			<tr>
+				<td style="width: 20%" align="left">
+					<a href="Hudson-Jenkins-.html" title="Hudson (Jenkins)">
+						<img alt="Previous" border="0" src="../images/prev.gif"/>
+					</a>
+				</td>
+				<td style="width: 60%" align="center">
+					<a href="Minerva.html" title="Minerva User Guide">
+						<img alt="Minerva User Guide" border="0" src="../images/home.gif"/>
+					</a>
+				</td>
+				<td style="width: 20%" align="right">
+					<a href="Updating-This-Document.html" title="Updating This Document">
+						<img alt="Next" border="0" src="../images/next.gif"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left" valign="top">Hudson (Jenkins)</td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right" valign="top">Updating This Document</td>
+			</tr>
+		</table>
+	</body>
+</html>
