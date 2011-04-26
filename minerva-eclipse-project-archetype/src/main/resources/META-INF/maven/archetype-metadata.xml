@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="minerva-parent"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <requiredProperties>
+    <requiredProperty key="projectName"/>
+  	<requiredProperty key="bundleId"/>
+  	<requiredProperty key="providerName"/>
+  </requiredProperties>
+  <fileSets>
+    <fileSet encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>README</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+  <modules>
+    <module id="${rootArtifactId}.core" dir="__rootArtifactId__.core" name="${rootArtifactId}.core">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/org</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>OSGI-INF/l10n</directory>
+          <includes>
+            <include>**/*.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>META-INF</directory>
+          <includes>
+            <include>**/*.MF</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>.settings</directory>
+          <includes>
+            <include>**/*.prefs</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.project</include>
+            <include>.classpath</include>
+            <include>build.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.gitignore</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}.ui" dir="__rootArtifactId__.ui" name="${rootArtifactId}.ui">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/org</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>OSGI-INF/l10n</directory>
+          <includes>
+            <include>**/*.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>icons</directory>
+          <includes>
+            <include>**/*.gif</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>META-INF</directory>
+          <includes>
+            <include>**/*.MF</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>.settings</directory>
+          <includes>
+            <include>**/*.prefs</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.project</include>
+            <include>.classpath</include>
+            <include>plugin.xml</include>
+            <include>build.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.gitignore</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}.doc" dir="__rootArtifactId__.doc" name="${rootArtifactId}.doc">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>help</directory>
+          <includes>
+            <include>**/*.xml</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>help/Minerva</directory>
+          <includes>
+            <include>**/*.html</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>help</directory>
+          <includes>
+            <include>**/*.css</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>help/Minerva</directory>
+          <includes>
+            <include>**/*.png</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>META-INF</directory>
+          <includes>
+            <include>**/*.MF</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>.settings</directory>
+          <includes>
+            <include>**/*.prefs</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.project</include>
+            <include>.classpath</include>
+            <include>about.html</include>
+            <include>plugin.xml</include>
+            <include>plugin.properties</include>
+            <include>build-help.xml</include>
+            <include>build.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.gitignore</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}-feature" dir="__rootArtifactId__-feature" name="${rootArtifactId}-feature">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>license.html</include>
+            <include>.project</include>
+            <include>feature.properties</include>
+            <include>epl-v10.html</include>
+            <include>feature.xml</include>
+            <include>build.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.gitignore</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}.source-feature" dir="__rootArtifactId__.source-feature" name="${rootArtifactId}.source-feature">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>license.html</include>
+            <include>.project</include>
+            <include>feature.properties</include>
+            <include>epl-v10.html</include>
+            <include>feature.xml</include>
+            <include>build.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.gitignore</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}-repository" dir="__rootArtifactId__-repository" name="${rootArtifactId}-repository">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.project</include>
+            <include>category.xml</include>
+            <include>index.html</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.gitignore</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}.core.tests" dir="__rootArtifactId__.core.tests" name="${rootArtifactId}.core.tests">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/org</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>META-INF</directory>
+          <includes>
+            <include>**/*.MF</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.project</include>
+            <include>.classpath</include>
+            <include>build.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.gitignore</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}.tests.ui" dir="__rootArtifactId__.tests.ui" name="${rootArtifactId}.tests.ui">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/org</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>META-INF</directory>
+          <includes>
+            <include>**/*.MF</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.project</include>
+            <include>.classpath</include>
+            <include>build.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>.gitignore</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+  </modules>
+</archetype-descriptor>
