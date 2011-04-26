@@ -1,0 +1,28 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version='1.0' encoding='utf-8' ?>
+<toc topic="help/Minerva/Minerva.html" label="EGit Documentation">
+	<topic href="help/Minerva/Minerva.html" label="Minerva User Guide">
+		<topic href="help/Minerva/Minerva.html" label="Building">
+			<topic href="help/Minerva/Minerva.html${symbol_pound}Features" label="Features"></topic>
+			<topic href="help/Minerva/Minerva.html${symbol_pound}Plug-ins" label="Plug-ins"></topic>
+			<topic href="help/Minerva/Minerva.html${symbol_pound}Source" label="Source"></topic>
+			<topic href="help/Minerva/Minerva.html${symbol_pound}Repositories_.28Update_Sites.29" label="Repositories (Update Sites)"></topic>
+		</topic>
+		<topic href="help/Minerva/Tests.html" label="Tests">
+			<topic href="help/Minerva/Tests.html${symbol_pound}Headless_Tests" label="Headless Tests"></topic>
+			<topic href="help/Minerva/Tests.html${symbol_pound}UI_Tests" label="UI Tests"></topic>
+		</topic>
+		<topic href="help/Minerva/Documentation.html" label="Documentation"></topic>
+		<topic href="help/Minerva/Static-Code-Analysis.html" label="Static Code Analysis"></topic>
+		<topic href="help/Minerva/Code-Coverage.html" label="Code Coverage"></topic>
+		<topic href="help/Minerva/Signing.html" label="Signing"></topic>
+		<topic href="help/Minerva/Hudson-Jenkins-.html" label="Hudson (Jenkins)"></topic>
+		<topic href="help/Minerva/Publishing.html" label="Publishing"></topic>
+		<topic href="help/Minerva/Updating-This-Document.html" label="Updating This Document"></topic>
+	</topic>
+	<topic href="help/Minerva/Sample/Sample.html" label="Minerva Sample">
+		<topic href="help/Minerva/Sample/Sample.html" label="Updating This Document"></topic>
+	</topic>
+</toc>

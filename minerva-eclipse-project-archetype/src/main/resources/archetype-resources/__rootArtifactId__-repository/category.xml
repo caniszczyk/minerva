@@ -1,0 +1,20 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://github.com/caniszczyk/minerva">
+	Minerva
+   </description>
+   <feature url="features/${package}_0.0.0.qualifier.jar" id="${package}" version="0.0.0" patch="false">
+      <category name="Minerva Plug-in"/>
+   </feature>
+   <feature url="features/${package}.sources_0.0.0.qualifier.jar" id="${package}.source" version="0.0.0" patch="false">
+      <category name="Minerva Plug-in"/>
+   </feature>
+   <category-def name="Minerva Example" label="Minerva Example">
+      <description>
+         A example project for the Eclipse community for getting started with Tycho.
+      </description>
+   </category-def>
+</site>

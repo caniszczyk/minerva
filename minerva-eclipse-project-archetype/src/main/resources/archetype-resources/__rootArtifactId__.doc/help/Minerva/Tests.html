@@ -1,0 +1,187 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Minerva User Guide - Tests</title>
+		<link type="text/css" rel="stylesheet" href="../book.css"/>
+	</head>
+	<body>
+		<table class="navigation" style="width: 100%;" border="0" summary="navigation">
+			<tr>
+				<th style="width: 100%" align="center" colspan="3">Tests</th>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left">
+					<a href="Minerva.html" title="Minerva User Guide">
+						<img alt="Previous" border="0" src="../images/prev.gif"/>
+					</a>
+				</td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right">
+					<a href="Documentation.html" title="Documentation">
+						<img alt="Next" border="0" src="../images/next.gif"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left" valign="top">Minerva User Guide</td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right" valign="top">Documentation</td>
+			</tr>
+		</table><hr/>
+		<h1 id="Tests">Tests</h1>
+		<p>Tests are an important part of any software project. Tycho both supports headless and UI tests (with 
+			<a href="http://eclipse.org/swtbot" target="minerva_external">SWTBot</a>).
+		</p>
+		<h2 id="Headless_Tests">Headless Tests</h2>
+		<p>Headless tests simply reference the parent pom and have a packaging attribute of 
+			<b>eclipse-test-plugin</b>.
+		</p>
+		<p>Here's a 
+			<a href="https://github.com/caniszczyk/minerva/blob/master/${package}.tests.core/pom.xml" target="minerva_external">pom.xml</a> snippet from the minerva core tests:
+		</p>
+		<pre>
+  &lt;parent&gt;
+    &lt;groupId&gt;${package}&lt;/groupId&gt;
+    &lt;artifactId&gt;${parentArtifactId}&lt;/artifactId&gt;
+    &lt;version&gt;${version}&lt;/version&gt;
+  &lt;/parent&gt;
+
+  &lt;artifactId&gt;${package}.core.tests&lt;/artifactId&gt;
+  &lt;packaging&gt;eclipse-test-plugin&lt;/packaging&gt;
+
+  &lt;name&gt;Minerva Core Test Plug-in&lt;/name&gt;
+
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.sonatype.tycho&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-osgi-test-plugin&lt;/artifactId&gt;
+        &lt;version&gt;${symbol_dollar}{tycho-version}&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;excludes&gt;
+            &lt;!-- test mojo matches TestProject be default and treats it as PojoTest --&gt;
+            &lt;exclude&gt;**/Test*.class&lt;/exclude&gt;
+          &lt;/excludes&gt;
+          &lt;useUIHarness&gt;false&lt;/useUIHarness&gt;
+          &lt;useUIThread&gt;false&lt;/useUIThread&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+     &lt;/plugins&gt;
+    &lt;/build&gt;
+</pre>
+		<p>Tycho does all the hard work and finds the tests to run as part of the build.</p>
+		<h2 id="UI_Tests">UI Tests</h2>
+		<p>UI tests simply reference the parent pom and have a packaging attribute of 
+			<b>eclipse-test-plugin</b>.
+		</p>
+		<p>Here's a 
+			<a href="https://github.com/caniszczyk/minerva/blob/master/${package}.tests.ui/pom.xml" target="minerva_external">pom.xml</a> snippet from the minerva core tests:
+		</p>
+		<pre>
+  &lt;parent&gt;
+    &lt;groupId&gt;${package}&lt;/groupId&gt;
+    &lt;artifactId&gt;${parentArtifactId}&lt;/artifactId&gt;
+    &lt;version&gt;${version}&lt;/version&gt;
+  &lt;/parent&gt;
+
+  &lt;artifactId&gt;${package}.ui.tests&lt;/artifactId&gt;
+  &lt;packaging&gt;eclipse-test-plugin&lt;/packaging&gt;
+
+  &lt;name&gt;Minerva UI Test Plug-in (Incubation)&lt;/name&gt;
+
+  &lt;properties&gt;
+    &lt;local-p2-site&gt;file:/${symbol_dollar}{basedir}/../${package}-updatesite/target/site&lt;/local-p2-site&gt;
+    &lt;ui.test.vmargs&gt;-Xmx512m -XX:MaxPermSize=256m&lt;/ui.test.vmargs&gt;
+  &lt;/properties&gt;
+
+  &lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;local-p2&lt;/id&gt;
+      &lt;layout&gt;p2&lt;/layout&gt;
+      &lt;url&gt;${symbol_dollar}{local-p2-site}&lt;/url&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;
+
+  &lt;profiles&gt;
+    &lt;profile&gt;
+      &lt;id&gt;skip-ui-tests&lt;/id&gt;
+      &lt;activation&gt;
+        &lt;property&gt;
+          &lt;name&gt;skip-ui-tests&lt;/name&gt;
+        &lt;/property&gt;
+      &lt;/activation&gt;
+      &lt;properties&gt;
+        &lt;maven.test.skip&gt;true&lt;/maven.test.skip&gt;
+      &lt;/properties&gt;
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
+
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.sonatype.tycho&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-osgi-test-plugin&lt;/artifactId&gt;
+        &lt;version&gt;${symbol_dollar}{tycho-version}&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;testSuite&gt;${package}.tests.ui&lt;/testSuite&gt;
+          &lt;testClass&gt;${package}.tests.ui.AllTests&lt;/testClass&gt;
+          &lt;useUIHarness&gt;true&lt;/useUIHarness&gt;
+          &lt;useUIThread&gt;false&lt;/useUIThread&gt;
+          &lt;product&gt;org.eclipse.sdk.ide&lt;/product&gt;
+          &lt;argLine&gt;${symbol_dollar}{ui.test.vmargs}&lt;/argLine&gt;
+          &lt;application&gt;org.eclipse.ui.ide.workbench&lt;/application&gt;
+          &lt;dependencies&gt;
+            &lt;dependency&gt;
+              &lt;type&gt;p2-installable-unit&lt;/type&gt;
+              &lt;artifactId&gt;org.eclipse.pde.feature.group&lt;/artifactId&gt;
+              &lt;version&gt;${symbol_dollar}{platform-version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+              &lt;type&gt;p2-installable-unit&lt;/type&gt;
+              &lt;artifactId&gt;${package}.feature.group&lt;/artifactId&gt;
+              &lt;version&gt;[1.0.0,2.0.0)&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+              &lt;type&gt;p2-installable-unit&lt;/type&gt;
+              &lt;artifactId&gt;org.eclipse.cvs.feature.group&lt;/artifactId&gt;
+              &lt;version&gt;[1.1.2,2.0.0)&lt;/version&gt;
+            &lt;/dependency&gt;
+           &lt;/dependencies&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+     &lt;/plugins&gt;
+    &lt;/build&gt;
+</pre>
+		<p>In this case, we use the built in support in Tycho to launch an Eclipse to test the UI.</p>
+		<p>We also ensure any features are installed that we need (like our minerva feature).</p>
+		<p>Under the covers, the UI tests use SWTBot via @RunWith(SWTBotJunit4ClassRunner.class)</p><hr/>
+		<table class="navigation" style="width: 100%;" border="0" summary="navigation">
+			<tr>
+				<td style="width: 20%" align="left">
+					<a href="Minerva.html" title="Minerva User Guide">
+						<img alt="Previous" border="0" src="../images/prev.gif"/>
+					</a>
+				</td>
+				<td style="width: 60%" align="center">
+					<a href="Minerva.html" title="Minerva User Guide">
+						<img alt="Minerva User Guide" border="0" src="../images/home.gif"/>
+					</a>
+				</td>
+				<td style="width: 20%" align="right">
+					<a href="Documentation.html" title="Documentation">
+						<img alt="Next" border="0" src="../images/next.gif"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 20%" align="left" valign="top">Minerva User Guide</td>
+				<td style="width: 60%" align="center"></td>
+				<td style="width: 20%" align="right" valign="top">Documentation</td>
+			</tr>
+		</table>
+	</body>
+</html>

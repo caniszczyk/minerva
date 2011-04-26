@@ -1,0 +1,24 @@
+This is a maven archetype to generate a basic tycho based project for eclipse.org projects.
+
+The archetype is created by running:
+
+mvn clean install
+
+The above will install the archteype into your local repository.  
+
+To run the archetype:
+
+mvn archetype:generate -DarchetypeCatalog=local
+
+Select the minerva-eclipse-project-archetype from the list of archetypes, and follow the prompts.
+The artifactId should be in the form of org.eclipse.projectName.  Replace projectName with your
+projects actual name.  
+
+In addition to the default required properties, there are several additional ones that need to be filled in.
+
+bundleId = this is the root bundle id for your project. It is in the format of, org.eclipse.minerva.  Replace as appropriate for your project.
+projectName = The textual Project name.  i.e. Minerva
+providerName = the provider of the plugin. i.e. eclipse.org or Eclipse Foundation.
+
+
+
