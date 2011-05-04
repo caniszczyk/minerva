@@ -71,11 +71,11 @@
     <module>${rootArtifactId}-feature</module>
     <module>${rootArtifactId}-repository</module>
     <module>${rootArtifactId}.core</module>
+    <module>${rootArtifactId}.core.tests</module>
     <module>${rootArtifactId}.doc</module>
     <module>${rootArtifactId}.source-feature</module>
-    <module>${rootArtifactId}.tests.core</module>
-    <module>${rootArtifactId}.tests.ui</module>
     <module>${rootArtifactId}.ui</module>
+    <module>${rootArtifactId}.ui.tests</module>
   </modules>
   
 
