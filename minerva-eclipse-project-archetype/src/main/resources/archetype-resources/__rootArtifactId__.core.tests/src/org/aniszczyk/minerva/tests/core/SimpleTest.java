@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package ${package}.tests.core;
+package ${package}.core.tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;

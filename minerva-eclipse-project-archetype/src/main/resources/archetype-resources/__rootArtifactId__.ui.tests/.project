@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>${package}.tests.ui</name>
+	<name>${package}.ui.tests</name>
 	<comment></comment>
 	<projects>
 	</projects>

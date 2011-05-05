@@ -59,6 +59,8 @@
 
     <module>org.aniszczyk.minerva.tests.core</module>
     <module>org.aniszczyk.minerva.tests.ui</module>
+
+    <module>minerva-eclipse-project-archetype</module>
    </modules>
 
   <repositories>

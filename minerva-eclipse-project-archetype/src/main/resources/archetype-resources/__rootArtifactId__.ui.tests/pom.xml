@@ -47,8 +47,8 @@
         <artifactId>maven-osgi-test-plugin</artifactId>
         <version>${tycho-version}</version>
         <configuration>
-          <testSuite>${package}.tests.ui</testSuite>
-          <testClass>${package}.tests.ui.AllTests</testClass>
+          <testSuite>${package}.ui.tests</testSuite>
+          <testClass>${package}.ui.tests.AllTests</testClass>
           <useUIHarness>true</useUIHarness>
           <useUIThread>false</useUIThread>
           <product>org.eclipse.sdk.ide</product>
