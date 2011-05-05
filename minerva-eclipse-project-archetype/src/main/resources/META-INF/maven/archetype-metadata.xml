@@ -255,7 +255,7 @@
         </fileSet>
       </fileSets>
     </module>
-    <module id="${rootArtifactId}.tests.ui" dir="__rootArtifactId__.tests.ui" name="${rootArtifactId}.tests.ui">
+    <module id="${rootArtifactId}.ui.tests" dir="__rootArtifactId__.ui.tests" name="${rootArtifactId}.ui.tests">
       <fileSets>
         <fileSet filtered="true" encoding="UTF-8">
           <directory>src/org</directory>

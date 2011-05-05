@@ -41,7 +41,7 @@
 			<b>eclipse-test-plugin</b>.
 		</p>
 		<p>Here's a 
-			<a href="https://github.com/caniszczyk/minerva/blob/master/${package}.tests.core/pom.xml" target="minerva_external">pom.xml</a> snippet from the minerva core tests:
+			<a href="https://github.com/caniszczyk/minerva/blob/master/${package}.core.tests/pom.xml" target="minerva_external">pom.xml</a> snippet from the minerva core tests:
 		</p>
 		<pre>
   &lt;parent&gt;
@@ -79,7 +79,7 @@
 			<b>eclipse-test-plugin</b>.
 		</p>
 		<p>Here's a 
-			<a href="https://github.com/caniszczyk/minerva/blob/master/${package}.tests.ui/pom.xml" target="minerva_external">pom.xml</a> snippet from the minerva core tests:
+			<a href="https://github.com/caniszczyk/minerva/blob/master/${package}.ui.tests/pom.xml" target="minerva_external">pom.xml</a> snippet from the minerva core tests:
 		</p>
 		<pre>
   &lt;parent&gt;
@@ -127,8 +127,8 @@
         &lt;artifactId&gt;maven-osgi-test-plugin&lt;/artifactId&gt;
         &lt;version&gt;${symbol_dollar}{tycho-version}&lt;/version&gt;
         &lt;configuration&gt;
-          &lt;testSuite&gt;${package}.tests.ui&lt;/testSuite&gt;
-          &lt;testClass&gt;${package}.tests.ui.AllTests&lt;/testClass&gt;
+          &lt;testSuite&gt;${package}.ui.tests&lt;/testSuite&gt;
+          &lt;testClass&gt;${package}.ui.tests.AllTests&lt;/testClass&gt;
           &lt;useUIHarness&gt;true&lt;/useUIHarness&gt;
           &lt;useUIThread&gt;false&lt;/useUIThread&gt;
           &lt;product&gt;org.eclipse.sdk.ide&lt;/product&gt;
