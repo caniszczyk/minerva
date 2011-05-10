@@ -86,16 +86,6 @@
     </repository>
   </repositories>
   
-  <pluginRepositories>
-    <pluginRepository>
-      <!-- need maven-findbugs-2.3.2-SNAPSHOT, see
-           http://jira.codehaus.org/browse/MFINDBUGS-122
-           remove this when this version is released -->
-      <id>codehaus.snapshots</id>
-      <url>http://snapshots.repository.codehaus.org/</url>
-    </pluginRepository>
-  </pluginRepositories>
-
   <build>
   	<sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -157,7 +147,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>findbugs-maven-plugin</artifactId>
-          <version>2.3.2-SNAPSHOT</version>
+          <version>2.3.2</version>
           <configuration>
             <findbugsXmlOutput>true</findbugsXmlOutput>
             <failOnError>false</failOnError>
