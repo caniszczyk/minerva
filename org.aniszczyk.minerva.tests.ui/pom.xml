@@ -54,8 +54,8 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.sonatype.tycho</groupId>
-        <artifactId>maven-osgi-test-plugin</artifactId>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-surefire-plugin</artifactId>
         <version>${tycho-version}</version>
         <configuration>
           <testSuite>org.aniszczyk.minerva.tests.ui</testSuite>

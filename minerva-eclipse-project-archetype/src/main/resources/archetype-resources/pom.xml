@@ -26,7 +26,7 @@
   </licenses>
 
   <properties>
-    <tycho-version>0.11.0</tycho-version>
+    <tycho-version>0.12.0</tycho-version>
     <platform-version-name>helios</platform-version-name>
     <eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
     <wikitext-site>http://download.eclipse.org/tools/mylyn/update/weekly</wikitext-site>
@@ -73,13 +73,13 @@
   	<sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
-        <groupId>org.sonatype.tycho</groupId>
+        <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-maven-plugin</artifactId>
         <version>${tycho-version}</version>
         <extensions>true</extensions>
       </plugin>
       <plugin>
-        <groupId>org.sonatype.tycho</groupId>
+        <groupId>org.eclipse.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>
         <version>${tycho-version}</version>
         <configuration>
@@ -90,8 +90,8 @@
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.sonatype.tycho</groupId>
-          <artifactId>maven-osgi-compiler-plugin</artifactId>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-compiler-plugin</artifactId>
           <version>${tycho-version}</version>
           <configuration>
             <encoding>UTF-8</encoding>
@@ -101,8 +101,8 @@
           <!-- TODO remove workaround when
              https://issues.sonatype.org/browse/TYCHO-473
              is fixed -->
-          <groupId>org.sonatype.tycho</groupId>
-          <artifactId>maven-osgi-source-plugin</artifactId>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-source-plugin</artifactId>
           <version>${tycho-version}</version>
           <executions>
             <execution>
