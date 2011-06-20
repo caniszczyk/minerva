@@ -12,15 +12,13 @@
   <parent>
     <groupId>${groupId}</groupId>
     <artifactId>${rootArtifactId}</artifactId>
-    <version>${version}</version>
+    <version>${version}-SNAPSHOT</version>
   </parent>
 
   <artifactId>${artifactId}</artifactId>
   <packaging>eclipse-repository</packaging>
 
   <name>Minerva Repository</name>
-  <!-- see http://issues.sonatype.org/browse/TYCHO-313 -->
-  <version>${version}</version>
 
   <build>
     <plugins>

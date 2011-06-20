@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>${groupId}</groupId>
 		<artifactId>${rootArtifactId}</artifactId>
-		<version>${version}</version>
+		<version>${version}-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>${artifactId}</artifactId>
