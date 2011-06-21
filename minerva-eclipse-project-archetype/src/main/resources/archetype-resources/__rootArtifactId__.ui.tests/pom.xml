@@ -14,7 +14,7 @@
   <name>${projectName} UI Test Plug-in (Incubation)</name>
 
   <properties>
-    <local-p2-site>file:/${basedir}/../${rootArtifactId}.repository/target/site</local-p2-site>
+    <local-p2-site>file:/${basedir}/../${rootArtifactId}-repository/target/repository</local-p2-site>
     <ui.test.vmargs>-Xmx512m -XX:MaxPermSize=256m</ui.test.vmargs>
   </properties>
 
