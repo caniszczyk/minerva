@@ -12,10 +12,10 @@
   <parent>
     <groupId>${groupId}</groupId>
     <artifactId>${rootArtifactId}</artifactId>
-    <version>${version}</version>
+    <version>${version}-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${artifactId}</artifactId>
+  <artifactId>${groupId}.${artifactId}</artifactId>
   <packaging>eclipse-plugin</packaging>
 
   <name>Minerva Core Plug-in</name>
@@ -32,8 +32,8 @@
     </resources>
     <plugins>
       <plugin>
-        <groupId>org.sonatype.tycho</groupId>
-        <artifactId>maven-osgi-source-plugin</artifactId>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-source-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
