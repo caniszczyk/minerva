@@ -18,7 +18,7 @@
   <artifactId>${artifactId}</artifactId>
   <packaging>eclipse-repository</packaging>
 
-  <name>Minerva Repository</name>
+  <name>${projectName} Repository</name>
 
   <build>
     <plugins>
