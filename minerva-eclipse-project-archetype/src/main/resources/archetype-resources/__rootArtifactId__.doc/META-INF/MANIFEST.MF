@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.aniszczyk.minerva.doc;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: ${version}.qualifier
 Bundle-Vendor: %Bundle-Vendor
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.mylyn.wikitext.core;bundle-version="[1.3.0,2.0.0)";resolution:=optional,
