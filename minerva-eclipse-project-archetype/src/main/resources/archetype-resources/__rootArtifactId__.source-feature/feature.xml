@@ -5,7 +5,7 @@
 <feature
       id="${package}.source"
       label="%featureName"
-      version="1.0.0.qualifier"
+      version="${version}.qualifier"
       provider-name="%providerName"
       plugin="${package}">
 
