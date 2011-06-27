@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Minerva UI Tests
 Bundle-Vendor: aniszczyk.org
 Bundle-SymbolicName: ${bundleId}.ui.tests
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: ${version}.qualifier
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: org.apache.log4j,

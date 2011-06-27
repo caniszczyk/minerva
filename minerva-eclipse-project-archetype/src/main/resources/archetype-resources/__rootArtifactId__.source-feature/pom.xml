@@ -18,6 +18,6 @@
   <artifactId>${artifactId}</artifactId>
   <packaging>eclipse-feature</packaging>
 
-  <name>Minerva Sources Feature</name>
+  <name>${projectName} Sources Feature</name>
 
 </project>

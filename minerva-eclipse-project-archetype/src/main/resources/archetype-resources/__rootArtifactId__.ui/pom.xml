@@ -15,7 +15,7 @@
     <version>${version}-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${groupId}.${artifactId}</artifactId>
+  <artifactId>${bundleId}.ui</artifactId>
   <packaging>eclipse-plugin</packaging>
 
   <name>${projectName} UI Plug-in</name>
