@@ -6,22 +6,14 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package org.aniszczyk.minerva.tests.core;
+package org.aniszczyk.minerva.ui.tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
-import org.aniszczyk.minerva.core.Model;
-import org.junit.Test;
-
-public class SimpleTest {
-	
-	@Test
-	public void simpleTest() {
-		Model model = new Model();
-		assertNull(model.getId());
-		model.setId("id");
-		assertEquals("id", model.getId());
-	}
+@RunWith(Suite.class)
+@SuiteClasses({ SimpleUITestCase.class })
+public class AllTests {
 
 }
