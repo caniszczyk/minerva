@@ -19,7 +19,7 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.aniszczyk.minerva.tests.ui</artifactId>
+  <artifactId>org.aniszczyk.minerva.ui.tests</artifactId>
   <packaging>eclipse-test-plugin</packaging>
 
   <name>Minerva UI Test Plug-in (Incubation)</name>
@@ -58,8 +58,8 @@
         <artifactId>tycho-surefire-plugin</artifactId>
         <version>${tycho-version}</version>
         <configuration>
-          <testSuite>org.aniszczyk.minerva.tests.ui</testSuite>
-          <testClass>org.aniszczyk.minerva.tests.ui.AllTests</testClass>
+          <testSuite>org.aniszczyk.minerva.ui.tests</testSuite>
+          <testClass>org.aniszczyk.minerva.ui.tests.AllTests</testClass>
           <useUIHarness>true</useUIHarness>
           <useUIThread>false</useUIThread>
           <product>org.eclipse.sdk.ide</product>

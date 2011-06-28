@@ -6,7 +6,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package org.aniszczyk.minerva.tests.ui;
+package org.aniszczyk.minerva.ui.tests;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -16,6 +16,7 @@ import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.junit.After;
 import org.junit.BeforeClass;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
@@ -31,6 +32,11 @@ public class SimpleUITestCase {
 		} catch (WidgetNotFoundException e) {
 			// somebody else probably closed it, lets not feel bad about it.
 		}
+	}
+
+	@Test
+	public void someTest() {
+		// TODO
 	}
 
 	@After
