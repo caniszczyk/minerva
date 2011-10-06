@@ -26,7 +26,9 @@
 
   <properties>
     <local-p2-site>file:/${basedir}/../org.aniszczyk.minerva-updatesite/target/site</local-p2-site>
-    <ui.test.vmargs>-Xmx512m -XX:MaxPermSize=256m</ui.test.vmargs>
+    <ui.test.vmargs.all>-Xmx512m -XX:MaxPermSize=256m</ui.test.vmargs.all>
+    <ui.test.vmargs.mac>-XstartOnFirstThread</ui.test.vmargs.mac>
+    <ui.test.vmargs>${ui.test.vmargs.all}</ui.test.vmargs>
   </properties>
 
   <repositories>
@@ -47,6 +49,17 @@
       </activation>
       <properties>
         <maven.test.skip>true</maven.test.skip>
+      </properties>
+    </profile>
+    <profile>
+      <id>mac-customization</id>
+      <activation>
+        <os>
+          <family>mac</family>
+        </os>
+      </activation>
+      <properties>
+        <ui.test.vmargs>${ui.test.vmargs.all} ${ui.test.vmargs.mac}</ui.test.vmargs>
       </properties>
     </profile>
   </profiles>
