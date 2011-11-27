@@ -26,12 +26,12 @@
   </licenses>
 
   <properties>
-    <tycho-version>0.12.0</tycho-version>
+    <tycho-version>0.13.0</tycho-version>
     <platform-version-name>helios</platform-version-name>
     <eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
     <wikitext-site>http://download.eclipse.org/tools/mylyn/update/weekly</wikitext-site>
     <swtbot-site>http://download.eclipse.org/technology/swtbot/${platform-version-name}/dev-build/update-site</swtbot-site>
-    <orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/S20110124210048/repository</orbit-site>
+    <orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository</orbit-site>
   </properties>
 
   <repositories>

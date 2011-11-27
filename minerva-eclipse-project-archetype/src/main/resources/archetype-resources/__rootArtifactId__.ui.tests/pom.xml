@@ -8,7 +8,7 @@
     <version>${version}-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${artifactId}</artifactId>
+  <artifactId>${bundleId}.ui.tests</artifactId>
   <packaging>eclipse-test-plugin</packaging>
 
   <name>${projectName} UI Test Plug-in (Incubation)</name>
