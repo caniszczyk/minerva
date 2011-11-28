@@ -25,7 +25,7 @@
   <name>Minerva UI Test Plug-in (Incubation)</name>
 
   <properties>
-    <local-p2-site>file:/${basedir}/../org.aniszczyk.minerva-updatesite/target/site</local-p2-site>
+    <local-p2-site>file:/${basedir}/../org.aniszczyk.minerva-repository/target/repository</local-p2-site>
     <ui.test.vmargs.all>-Xmx512m -XX:MaxPermSize=256m</ui.test.vmargs.all>
     <ui.test.vmargs.mac>-XstartOnFirstThread</ui.test.vmargs.mac>
     <ui.test.vmargs>${ui.test.vmargs.all}</ui.test.vmargs>
@@ -84,17 +84,17 @@
               <artifactId>org.eclipse.pde.feature.group</artifactId>
               <version>${platform-version}</version>
             </dependency>
-            <dependency> -->
-              <type>p2-installable-unit</type>
-              <artifactId>org.aniszczyk.minerva.feature.group</artifactId>
-              <version>1.0.0</version>
+            <dependency>
+              <type>eclipse-feature</type>
+              <artifactId>org.aniszczyk.minerva-feature</artifactId>
+              <version>0.0.0</version>
             </dependency>
             <dependency>
               <type>p2-installable-unit</type>
               <artifactId>org.eclipse.cvs.feature.group</artifactId>
               <version>[1.1.2,2.0.0)</version>
             </dependency>
-           </dependencies>
+          </dependencies>
         </configuration>
       </plugin>
       <plugin>

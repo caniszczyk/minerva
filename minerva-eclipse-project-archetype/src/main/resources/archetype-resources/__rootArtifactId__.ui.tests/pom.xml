@@ -8,14 +8,16 @@
     <version>${version}-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${artifactId}</artifactId>
+  <artifactId>${bundleId}.ui.tests</artifactId>
   <packaging>eclipse-test-plugin</packaging>
 
   <name>${projectName} UI Test Plug-in (Incubation)</name>
 
   <properties>
     <local-p2-site>file:/${basedir}/../${rootArtifactId}-repository/target/repository</local-p2-site>
-    <ui.test.vmargs>-Xmx512m -XX:MaxPermSize=256m</ui.test.vmargs>
+    <ui.test.vmargs.all>-Xmx512m -XX:MaxPermSize=256m</ui.test.vmargs.all>
+    <ui.test.vmargs.mac>-XstartOnFirstThread</ui.test.vmargs.mac>
+    <ui.test.vmargs>${ui.test.vmargs.all}</ui.test.vmargs>
   </properties>
 
   <repositories>
@@ -38,6 +40,17 @@
         <maven.test.skip>true</maven.test.skip>
       </properties>
     </profile>
+    <profile>
+      <id>mac-customization</id>
+      <activation>
+        <os>
+          <family>mac</family>
+        </os>
+      </activation>
+      <properties>
+        <ui.test.vmargs>${ui.test.vmargs.all} ${ui.test.vmargs.mac}</ui.test.vmargs>
+      </properties>
+    </profile>
   </profiles>
 
   <build>
@@ -49,6 +62,7 @@
         <configuration>
           <useUIHarness>true</useUIHarness>
           <useUIThread>true</useUIThread>
+          <argLine>${ui.test.vmargs}</argLine>
         </configuration>
       </plugin>
       <plugin>

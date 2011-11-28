@@ -16,7 +16,7 @@
     <version>${version}-SNAPSHOT</version>
   </parent>
 
-  <artifactId>${artifactId}</artifactId>
+  <artifactId>${package}</artifactId>
   <packaging>eclipse-feature</packaging>
 
   <name>${projectName} Feature (Incubation)</name>
