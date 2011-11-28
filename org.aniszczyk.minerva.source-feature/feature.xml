@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.aniszczyk.minerva.source"
+      id="org.aniszczyk.minerva.source-feature"
       label="%featureName"
       version="1.0.0.qualifier"
       provider-name="%providerName"
