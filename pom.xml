@@ -239,15 +239,6 @@
 	</profile>
     
     <profile>
-      <id>coverage</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <modules>
-          <module>org.eclemma.runtime.equinox</module>
-      </modules>
-    </profile>
-    <profile>
       <id>static-checks</id>
       <build>
         <plugins>
