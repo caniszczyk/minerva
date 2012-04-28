@@ -25,19 +25,10 @@
   <name>Minerva UI Test Plug-in (Incubation)</name>
 
   <properties>
-    <local-p2-site>file:/${basedir}/../org.aniszczyk.minerva-repository/target/repository</local-p2-site>
     <ui.test.vmargs.all>-Xmx512m -XX:MaxPermSize=256m</ui.test.vmargs.all>
     <ui.test.vmargs.mac>-XstartOnFirstThread</ui.test.vmargs.mac>
     <ui.test.vmargs>${ui.test.vmargs.all}</ui.test.vmargs>
   </properties>
-
-  <repositories>
-    <repository>
-      <id>local-p2</id>
-      <layout>p2</layout>
-      <url>${local-p2-site}</url>
-    </repository>
-  </repositories>
 
   <profiles>
     <profile>
