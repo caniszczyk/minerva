@@ -97,17 +97,13 @@
             <encoding>UTF-8</encoding>
           </configuration>
         </plugin>
-        <plugin>
-          <!-- TODO remove workaround when
-             https://issues.sonatype.org/browse/TYCHO-473
-             is fixed -->
+        <plugin>          
           <groupId>org.eclipse.tycho</groupId>
           <artifactId>tycho-source-plugin</artifactId>
           <version>${tycho-version}</version>
           <executions>
             <execution>
-              <id>attach-source</id>
-              <phase>process-classes</phase>
+              <id>attach-source</id>              
               <goals>
                 <goal>plugin-source</goal>
               </goals>
