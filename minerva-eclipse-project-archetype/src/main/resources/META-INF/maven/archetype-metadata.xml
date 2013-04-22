@@ -18,8 +18,8 @@
   <modules>
     <module id="${rootArtifactId}.core" dir="__rootArtifactId__.core" name="${rootArtifactId}.core">
       <fileSets>
-        <fileSet filtered="true" encoding="UTF-8">
-          <directory>src/org</directory>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src</directory>
           <includes>
             <include>**/*.java</include>
           </includes>
@@ -60,8 +60,8 @@
     </module>
     <module id="${rootArtifactId}.ui" dir="__rootArtifactId__.ui" name="${rootArtifactId}.ui">
       <fileSets>
-        <fileSet filtered="true" encoding="UTF-8">
-          <directory>src/org</directory>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src</directory>
           <includes>
             <include>**/*.java</include>
           </includes>
@@ -227,8 +227,8 @@
     </module>
     <module id="${rootArtifactId}.core.tests" dir="__rootArtifactId__.core.tests" name="${rootArtifactId}.core.tests">
       <fileSets>
-        <fileSet filtered="true" encoding="UTF-8">
-          <directory>src/org</directory>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src</directory>
           <includes>
             <include>**/*.java</include>
           </includes>
@@ -257,8 +257,8 @@
     </module>
     <module id="${rootArtifactId}.ui.tests" dir="__rootArtifactId__.ui.tests" name="${rootArtifactId}.ui.tests">
       <fileSets>
-        <fileSet filtered="true" encoding="UTF-8">
-          <directory>src/org</directory>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src</directory>
           <includes>
             <include>**/*.java</include>
           </includes>
