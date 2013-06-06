@@ -10,3 +10,4 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: ${bundleId}.ui,
  ${bundleId}.ui.views
+Bundle-Vendor: %Bundle-Vendor

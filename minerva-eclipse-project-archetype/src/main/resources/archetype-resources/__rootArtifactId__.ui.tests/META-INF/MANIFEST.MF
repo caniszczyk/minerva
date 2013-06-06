@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Minerva UI Tests
-Bundle-Vendor: aniszczyk.org
+Bundle-Name: ${projectName} UI Test
+Bundle-Vendor: ${providerName}
 Bundle-SymbolicName: ${bundleId}.ui.tests
 Bundle-Version: ${version}.qualifier
 Bundle-ActivationPolicy: lazy
